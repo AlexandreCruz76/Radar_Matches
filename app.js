@@ -618,6 +618,140 @@ const matches = [
   }
 ];
 
+/* ═══════════════════════════════════════════
+   CARROSSEL - Destaques do Dia
+   ═══════════════════════════════════════════ */
+
+const carouselSlides = [
+  {
+    matchId: 'england-vs-dr-congo',
+    image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1400&q=80',
+    alt: 'Estádio de futebol durante jogo',
+    label: { pt: '🔴 AO VIVO', en: '🔴 LIVE', es: '🔴 EN VIVO' }
+  },
+  {
+    matchId: 'usa-vs-bosnia',
+    image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?auto=format&fit=crop&w=1400&q=80',
+    alt: 'Estádio iluminado à noite',
+    label: { pt: '⚽ HOJE', en: '⚽ TODAY', es: '⚽ HOY' }
+  },
+  {
+    matchId: 'mexico-vs-ecuador',
+    image: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1400&q=80',
+    alt: 'Estádio com torcida',
+    label: { pt: '⚽ HOJE', en: '⚽ TODAY', es: '⚽ HOY' }
+  },
+  {
+    matchId: 'belgium-vs-senegal',
+    image: 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=1400&q=80',
+    alt: 'Arquibancada de estádio',
+    label: { pt: '⏰ PRÓXIMO', en: '⏰ UPCOMING', es: '⏰ PRÓXIMO' }
+  },
+  {
+    matchId: 'brazil-vs-croatia',
+    image: 'https://images.unsplash.com/photo-1489944966632-5b10f1f6d00e?auto=format&fit=crop&w=1400&q=80',
+    alt: 'Jogadores em campo',
+    label: { pt: '🔥 DESTAQUE', en: '🔥 HIGHLIGHT', es: '🔥 DESTACADO' }
+  },
+  {
+    matchId: 'argentina-vs-uruguay',
+    image: 'https://images.unsplash.com/photo-1552667466-07770ae110d0?auto=format&fit=crop&w=1400&q=80',
+    alt: 'Torcida comemorando',
+    label: { pt: '🔥 DESTAQUE', en: '🔥 HIGHLIGHT', es: '🔥 DESTACADO' }
+  },
+  {
+    matchId: 'final-2026',
+    image: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1400&q=80',
+    alt: 'Estádio panorâmico',
+    label: { pt: '🏆 GRANDE FINAL', en: '🏆 GRAND FINAL', es: '🏆 GRAN FINAL' }
+  }
+];
+
+/* ═══════════════════════════════════════════
+   TORNEIOS MUNDIAIS
+   ═══════════════════════════════════════════ */
+
+const confederations = [
+  {
+    id: 'fifa',
+    name: { pt: 'FIFA', en: 'FIFA', es: 'FIFA' },
+    tournaments: [
+      { id: 'worldcup', name: { pt: '🏆 Copa do Mundo 2026', en: '🏆 World Cup 2026', es: '🏆 Copa Mundial 2026' }, highlighted: true },
+      { id: 'clubworldcup', name: { pt: '🌍 Copa do Mundo de Clubes', en: '🌍 Club World Cup', es: '🌍 Copa Mundial de Clubes' } },
+      { id: 'nationsleaguefinal', name: { pt: '🏟️ Final Nations League', en: '🏟️ Nations League Finals', es: '🏟️ Final Nations League' } }
+    ]
+  },
+  {
+    id: 'uefa',
+    name: { pt: '🇪🇺 UEFA (Europa)', en: '🇪🇺 UEFA (Europe)', es: '🇪🇺 UEFA (Europa)' },
+    tournaments: [
+      { id: 'championsleague', name: { pt: '🏆 Champions League', en: '🏆 Champions League', es: '🏆 Champions League' } },
+      { id: 'europaleague', name: { pt: '🏆 Europa League', en: '🏆 Europa League', es: '🏆 Europa League' } },
+      { id: 'conferenceleague', name: { pt: '🏆 Conference League', en: '🏆 Conference League', es: '🏆 Conference League' } },
+      { id: 'euro', name: { pt: '🏆 Eurocopa', en: '🏆 European Championship', es: '🏆 Eurocopa' } },
+      { id: 'nationsleague', name: { pt: '🏟️ Nations League', en: '🏟️ Nations League', es: '🏟️ Nations League' } }
+    ]
+  },
+  {
+    id: 'conmebol',
+    name: { pt: '🇦🇷 CONMEBOL (América do Sul)', en: '🇦🇷 CONMEBOL (South America)', es: '🇦🇷 CONMEBOL (Sudamérica)' },
+    tournaments: [
+      { id: 'libertadores', name: { pt: '🏆 Copa Libertadores', en: '🏆 Copa Libertadores', es: '🏆 Copa Libertadores' } },
+      { id: 'sudamericana', name: { pt: '🏆 Copa Sudamericana', en: '🏆 Copa Sudamericana', es: '🏆 Copa Sudamericana' } },
+      { id: 'recopa', name: { pt: '🏆 Recopa Sul-Americana', en: '🏆 Recopa Sudamericana', es: '🏆 Recopa Sudamericana' } },
+      { id: 'copamerica', name: { pt: '🏆 Copa América', en: '🏆 Copa América', es: '🏆 Copa América' } }
+    ]
+  },
+  {
+    id: 'concacaf',
+    name: { pt: '🇺🇸 CONCACAF (Am. do Norte/Central)', en: '🇺🇸 CONCACAF (N/Central America)', es: '🇺🇸 CONCACAF (Am. del Norte/Central)' },
+    tournaments: [
+      { id: 'goldcup', name: { pt: '🏆 Gold Cup', en: '🏆 Gold Cup', es: '🏆 Gold Cup' } },
+      { id: 'championscup', name: { pt: '🏆 Champions Cup', en: '🏆 Champions Cup', es: '🏆 Champions Cup' } },
+      { id: 'leaguescup', name: { pt: '🏆 Leagues Cup', en: '🏆 Leagues Cup', es: '🏆 Leagues Cup' } }
+    ]
+  },
+  {
+    id: 'caf',
+    name: { pt: '🌍 CAF (África)', en: '🌍 CAF (Africa)', es: '🌍 CAF (África)' },
+    tournaments: [
+      { id: 'afcon', name: { pt: '🏆 Copa Africana de Nações', en: '🏆 Africa Cup of Nations', es: '🏆 Copa Africana de Naciones' } },
+      { id: 'cafcl', name: { pt: '🏆 Champions League Africana', en: '🏆 CAF Champions League', es: '🏆 Champions League Africana' } }
+    ]
+  },
+  {
+    id: 'afc',
+    name: { pt: '🌏 AFC (Ásia)', en: '🌏 AFC (Asia)', es: '🌏 AFC (Asia)' },
+    tournaments: [
+      { id: 'asiancup', name: { pt: '🏆 Copa Asiática', en: '🏆 Asian Cup', es: '🏆 Copa Asiática' } },
+      { id: 'afccl', name: { pt: '🏆 Champions League Asiática', en: '🏆 AFC Champions League', es: '🏆 Champions League Asiática' } }
+    ]
+  },
+  {
+    id: 'ofc',
+    name: { pt: '🌴 OFC (Oceania)', en: '🌴 OFC (Oceania)', es: '🌴 OFC (Oceanía)' },
+    tournaments: [
+      { id: 'ofcnc', name: { pt: '🏆 Copa das Nações da OFC', en: '🏆 OFC Nations Cup', es: '🏆 Copa de Naciones de la OFC' } }
+    ]
+  },
+  {
+    id: 'top-leagues',
+    name: { pt: '⭐ Principais Ligas', en: '⭐ Top Leagues', es: '⭐ Ligas Principales' },
+    tournaments: [
+      { id: 'premierleague', name: { pt: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League', en: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League', es: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League' } },
+      { id: 'laliga', name: { pt: '🇪🇸 La Liga', en: '🇪🇸 La Liga', es: '🇪🇸 La Liga' } },
+      { id: 'bundesliga', name: { pt: '🇩🇪 Bundesliga', en: '🇩🇪 Bundesliga', es: '🇩🇪 Bundesliga' } },
+      { id: 'seriea', name: { pt: '🇮🇹 Serie A', en: '🇮🇹 Serie A', es: '🇮🇹 Serie A' } },
+      { id: 'ligue1', name: { pt: '🇫🇷 Ligue 1', en: '🇫🇷 Ligue 1', es: '🇫🇷 Ligue 1' } },
+      { id: 'brasileirao', name: { pt: '🇧🇷 Brasileirão Série A', en: '🇧🇷 Brasileirão Série A', es: '🇧🇷 Brasileirão Série A' } },
+      { id: 'argentina', name: { pt: '🇦🇷 Liga Argentina', en: '🇦🇷 Argentine League', es: '🇦🇷 Liga Argentina' } },
+      { id: 'eredivisie', name: { pt: '🇳🇱 Eredivisie', en: '🇳🇱 Eredivisie', es: '🇳🇱 Eredivisie' } },
+      { id: 'ligamx', name: { pt: '🇲🇽 Liga MX', en: '🇲🇽 Liga MX', es: '🇲🇽 Liga MX' } },
+      { id: 'mls', name: { pt: '🇺🇸 MLS', en: '🇺🇸 MLS', es: '🇺🇸 MLS' } }
+    ]
+  }
+];
+
 /* ── State ── */
 let state = {
   country: null,
@@ -659,6 +793,8 @@ const DOM = {
   liveCountdownText: $('#liveCountdownText'),
   liveMatchName: $('#liveMatchName')
 };
+
+let carouselInitialized = false;
 
 /* ── Config System ── */
 function getAppConfig() {
@@ -920,6 +1056,294 @@ function getFilteredMatches() {
   });
 }
 
+/* ═══════════════════════════════════════════
+   CARROSSEL - Render & Init
+   ═══════════════════════════════════════════ */
+
+function renderCarousel() {
+  const track = $('#carouselTrack');
+  const dots = $('#carouselDots');
+  if (!track) return;
+
+  const dict = translations[state.language];
+
+  track.innerHTML = carouselSlides.map((slide, index) => {
+    const match = matches.find(m => m.id === slide.matchId);
+    if (!match) return '';
+    const label = t(slide.label);
+    const matchUrl = `./pages/${match.slug}.html`;
+
+    return `
+      <div class="carousel-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
+        <img src="${slide.image}" alt="${slide.alt}" class="carousel-img" loading="${index < 2 ? 'eager' : 'lazy'}" />
+        <div class="carousel-overlay"></div>
+        <div class="carousel-content">
+          <span class="carousel-tag">${label}</span>
+          <h2 class="carousel-title">${t(match.teams)}</h2>
+          <p class="carousel-meta">${t(match.stage)} — ${t(match.time)}</p>
+          <div class="carousel-demand">${t(match.demand)}</div>
+          <a href="${matchUrl}" class="primary-link" data-i18n="seeMatch">
+            ${dict.officialButton || 'Onde assistir'} →
+          </a>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Create dots
+  if (dots) {
+    dots.innerHTML = carouselSlides.map((_, i) => `
+      <button class="carousel-dot ${i === 0 ? 'active' : ''}" data-slide="${i}" aria-label="Slide ${i + 1}"></button>
+    `).join('');
+  }
+}
+
+let carouselInterval = null;
+let carouselCurrent = 0;
+const CAROUSEL_INTERVAL = 5000;
+
+function goToSlide(index) {
+  const slides = $$('.carousel-slide');
+  const dots = $$('.carousel-dot');
+  if (!slides.length) return;
+
+  carouselCurrent = ((index % slides.length) + slides.length) % slides.length;
+
+  slides.forEach((s, i) => {
+    s.classList.toggle('active', i === carouselCurrent);
+  });
+  dots.forEach((d, i) => {
+    d.classList.toggle('active', i === carouselCurrent);
+  });
+}
+
+function nextSlide() { goToSlide(carouselCurrent + 1); }
+function prevSlide() { goToSlide(carouselCurrent - 1); }
+
+function startCarousel() {
+  stopCarousel();
+  carouselInterval = setInterval(nextSlide, CAROUSEL_INTERVAL);
+}
+
+function stopCarousel() {
+  if (carouselInterval) {
+    clearInterval(carouselInterval);
+    carouselInterval = null;
+  }
+}
+
+function setupCarouselEvents() {
+  const carousel = $('#heroCarousel');
+  const next = $('#carouselNext');
+  const prev = $('#carouselPrev');
+  const dotsContainer = $('#carouselDots');
+
+  next?.addEventListener('click', () => { stopCarousel(); nextSlide(); startCarousel(); });
+  prev?.addEventListener('click', () => { stopCarousel(); prevSlide(); startCarousel(); });
+
+  dotsContainer?.addEventListener('click', (e) => {
+    const dot = e.target.closest('.carousel-dot');
+    if (dot) {
+      stopCarousel();
+      goToSlide(parseInt(dot.dataset.slide));
+      startCarousel();
+    }
+  });
+
+  // Pause on hover
+  carousel?.addEventListener('mouseenter', stopCarousel);
+  carousel?.addEventListener('mouseleave', startCarousel);
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' && carousel?.contains(document.activeElement || e.target)) {
+      stopCarousel(); prevSlide(); startCarousel();
+    }
+    if (e.key === 'ArrowRight' && carousel?.contains(document.activeElement || e.target)) {
+      stopCarousel(); nextSlide(); startCarousel();
+    }
+  });
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  carousel?.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  carousel?.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      stopCarousel();
+      if (diff > 0) nextSlide(); else prevSlide();
+      startCarousel();
+    }
+  }, { passive: true });
+}
+
+/* ═══════════════════════════════════════════
+   TORNEIOS MUNDIAIS - Render
+   ═══════════════════════════════════════════ */
+
+function renderTournaments() {
+  const container = $('#tournamentsList');
+  if (!container) return;
+
+  container.innerHTML = confederations.map(conf => `
+    <div class="tournament-confederation">
+      <div class="confederation-name">${t(conf.name)}</div>
+      <div class="confederation-tournaments">
+        ${conf.tournaments.map(t => `
+          <div class="tournament-item ${t.highlighted ? 'highlighted' : ''}" data-tournament="${t.id}">
+            <span>${t(t.name)}</span>
+            ${t.highlighted ? '<span class="tournament-badge">📺 Destaque</span>' : ''}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ═══════════════════════════════════════════
+   SCOREBAT - Live Scores Widget
+   ═══════════════════════════════════════════ */
+
+function initScoreBatWidget() {
+  const container = $('#scorebatContainer');
+  const widget = $('#scorebatWidget');
+  if (!container || !widget) return;
+
+  const cfg = getAppConfig();
+  const embedCode = cfg.scorebatEmbed || '';
+
+  if (!embedCode.trim()) {
+    // Show placeholder if no embed configured
+    container.style.display = 'block';
+    widget.innerHTML = `
+      <div class="scorebat-placeholder">
+        <span style="font-size:1.5rem">⚽</span>
+        <p style="color:var(--muted);font-size:0.82rem;margin-top:6px">Configure o widget de placares ao vivo no painel Admin.</p>
+        <a href="./admin.html" style="color:var(--green);font-weight:700;font-size:0.82rem">Ir para Admin →</a>
+      </div>
+    `;
+    return;
+  }
+
+  // Show container
+  container.style.display = 'block';
+  widget.innerHTML = '';
+
+  // Create a container div for the widget (ScoreBat injects into this)
+  const sbDiv = document.createElement('div');
+  sbDiv.className = 'scorebat-widget-inner';
+  widget.appendChild(sbDiv);
+
+  // Extract the script from the embed code and execute it
+  // ScoreBat embed typically looks like:
+  // <script>(function(w,d,s,...))</script>
+  // We need to create a script element from the embed
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = embedCode;
+  const scripts = tempDiv.querySelectorAll('script');
+
+  scripts.forEach(oldScript => {
+    const newScript = document.createElement('script');
+    Array.from(oldScript.attributes).forEach(attr => {
+      newScript.setAttribute(attr.name, attr.value);
+    });
+    if (!oldScript.src) {
+      newScript.textContent = oldScript.textContent;
+    }
+    document.body.appendChild(newScript);
+  });
+
+  // If the embed contains any HTML div containers, render them
+  const nonScripts = tempDiv.querySelectorAll(':not(script)');
+  nonScripts.forEach(el => {
+    if (el.tagName !== 'SCRIPT') {
+      sbDiv.appendChild(el.cloneNode(true));
+    }
+  });
+}
+
+/* ═══════════════════════════════════════════
+   DADOS REAIS - OpenLigaDB Integration
+   ═══════════════════════════════════════════ */
+
+let realDataAvailable = false;
+
+async function fetchRealMatches() {
+  const indicator = $('#liveDataIndicator');
+
+  try {
+    // Try fetching World Cup 2026 data from OpenLigaDB
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+    const response = await fetch('https://api.openligadb.de/getmatchdata/wm2026/2026', {
+      signal: controller.signal
+    });
+    clearTimeout(timeoutId);
+
+    if (!response.ok) throw new Error('API response not OK');
+
+    const data = await response.json();
+    if (!Array.isArray(data) || data.length === 0) throw new Error('No data');
+
+    realDataAvailable = true;
+
+    if (indicator) {
+      indicator.innerHTML = '📡 <span style="color:var(--green);font-weight:800">Dados oficiais FIFA • Ao vivo</span>';
+      indicator.style.display = 'block';
+    }
+
+    // Merge real match scores into our data
+    mergeRealMatchData(data);
+
+    console.log(`📡 OpenLigaDB: ${data.length} partidas reais carregadas`);
+  } catch (err) {
+    console.log('📡 OpenLigaDB: usando dados locais (fallback)');
+    if (indicator) {
+      indicator.innerHTML = '📡 <span style="color:var(--muted)">Dados simulados • Modo offline</span>';
+      indicator.style.display = 'block';
+    }
+  }
+}
+
+function mergeRealMatchData(apiMatches) {
+  apiMatches.forEach(apiMatch => {
+    if (!apiMatch.matchResults || apiMatch.matchResults.length === 0) return;
+
+    const team1 = apiMatch.team1?.teamName || '';
+    const team2 = apiMatch.team2?.teamName || '';
+    const matchKey = `${team1.toLowerCase()}|${team2.toLowerCase()}`;
+
+    // Try to find matching local match by checking both team names
+    const localMatch = matches.find(m => {
+      const teamsStr = t(m.teams).toLowerCase();
+      return teamsStr.includes(team1.toLowerCase()) && teamsStr.includes(team2.toLowerCase());
+    });
+
+    if (localMatch && apiMatch.matchIsFinished) {
+      // Store real score data on the match object
+      const result = apiMatch.matchResults.find(r => r.resultName === 'Endergebnis');
+      if (result) {
+        localMatch.realScore = `${result.pointsTeam1} - ${result.pointsTeam2}`;
+        localMatch.realData = true;
+      }
+    }
+
+    // Update match status based on real data
+    if (apiMatch.matchIsFinished && localMatch) {
+      localMatch.status = 'today';
+      localMatch.matchIsFinished = true;
+    }
+  });
+
+  // Re-render matches if we merged data
+  renderMatches();
+}
+
 /* ── Revenue Engine ── */
 function updateRevenue() {
   const sentRevenue = state.sentClicks * 0.42;
@@ -1013,6 +1437,9 @@ function renderMatches() {
   if (DOM.matchGrid) {
     DOM.matchGrid.innerHTML = filtered.map((match, index) => {
       const providers = (match.countries[state.country] || []);
+      const scoreBadge = match.realData && match.realScore 
+        ? `<div class="real-score-badge">📡 Placar real: <strong>${match.realScore}</strong></div>`
+        : '';
       const providerHtml = providers.map(name => {
         const provider = getOfficialByName(state.country, name);
         if (!provider) return '';
@@ -1035,6 +1462,7 @@ function renderMatches() {
             <div>
               <div class="teams">${t(match.teams)}</div>
               <div class="meta">${t(match.stage)} — ${t(match.time)} — ${t(broadcasters[state.country]?.labels || '')}</div>
+              ${scoreBadge}
             </div>
             <span class="status-tag ${match.status}">${formatStatus(match.status)}</span>
           </div>
@@ -1105,6 +1533,8 @@ function refreshAll() {
   populateCountries();
   renderOfficials();
   renderMatches();
+  renderTournaments();
+  renderCarousel();
   if (DOM.languageSelect) DOM.languageSelect.value = state.language;
   if (DOM.statusSelect) DOM.statusSelect.value = state.status;
 }
@@ -1222,6 +1652,23 @@ function init() {
       applyTheme(e.matches ? 'dark' : 'light');
     }
   });
+
+  // Carousel
+  renderCarousel();
+  if (!carouselInitialized) {
+    setupCarouselEvents();
+    startCarousel();
+    carouselInitialized = true;
+  }
+
+  // Tournaments sidebar
+  renderTournaments();
+
+  // ScoreBat Live Scores Widget
+  initScoreBatWidget();
+
+  // Real match data from OpenLigaDB
+  fetchRealMatches();
 
   // Floating share
   setupFloatingShare();

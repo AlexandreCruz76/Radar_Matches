@@ -9,23 +9,23 @@
   Link: <https://pagead2.googlesyndication.com>; rel=preconnect
   Link: <https://www.googletagmanager.com>; rel=preconnect
 
-*.css
+/*.css
   Cache-Control: public, max-age=31536000, immutable
 
-*.js
+/*.js
   Cache-Control: public, max-age=31536000, immutable
 
-*.json
+/*.json
   Cache-Control: public, max-age=31536000, immutable
 
-*.txt
+/*.txt
   Cache-Control: public, max-age=86400
 
-*.xml
+/*.xml
   Cache-Control: public, max-age=86400
 
-*.html
+/*.html
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
-service-worker.js
+/service-worker.js
   Cache-Control: no-cache, no-store, must-revalidate

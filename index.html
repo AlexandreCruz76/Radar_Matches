@@ -176,6 +176,22 @@
     </div>
   </header>
 
+  <!-- ═══ CARROSSEL DE DESTAQUES ═══ -->
+  <section id="heroCarousel" class="hero-carousel" aria-label="Destaques do dia">
+    <div class="carousel-viewport">
+      <div class="carousel-track" id="carouselTrack">
+        <!-- Slides injected by JavaScript -->
+      </div>
+      <div class="carousel-gradient" aria-hidden="true"></div>
+      <div class="carousel-dots" id="carouselDots"></div>
+      <button class="carousel-arrow carousel-prev" id="carouselPrev" type="button" aria-label="Anterior">‹</button>
+      <button class="carousel-arrow carousel-next" id="carouselNext" type="button" aria-label="Próximo">›</button>
+    </div>
+  </section>
+
+  <!-- ═══ LIVE DATA INDICATOR ═══ -->
+  <div id="liveDataIndicator" class="live-data-indicator" style="display:none"></div>
+
   <main class="shell" role="main">
 
     <!-- ═══ HERO ═══ -->
@@ -295,16 +311,13 @@
       <!-- ── RIGHT COLUMN: Side Rail ── -->
       <aside class="side-rail" aria-label="Painéis laterais">
 
-        <!-- Monetization Model -->
-        <div class="mini-card">
-          <span class="panel-label" data-i18n="modelLabel">Modelo 24/7</span>
-          <h3 data-i18n="moneyTitle">Como ganha dinheiro</h3>
-          <ul>
-            <li data-i18n="moneyOne">Clique para canal oficial (US$ 0,42)</li>
-            <li data-i18n="moneyTwo">AdSense por página de jogo (US$ 1,20)</li>
-            <li data-i18n="moneyThree">Patrocínio por país e partida (US$ 50+)</li>
-            <li data-i18n="moneyFour">Leads de alerta antes do jogo (US$ 2,00)</li>
-          </ul>
+        <!-- Tournaments Sidebar -->
+        <div class="mini-card tournaments-card">
+          <span class="panel-label">🌍 Torneios do Mundo</span>
+          <h3>Competições</h3>
+          <div class="tournaments-list" id="tournamentsList">
+            <!-- Injected by JavaScript -->
+          </div>
         </div>
 
         <!-- Lead Capture -->
@@ -316,6 +329,12 @@
             <button type="submit" data-i18n="activateAlert">Ativar alerta grátis</button>
           </form>
           <small id="leadMessage" data-i18n="leadHelp">Lista pronta para monetizar com patrocinadores. Zero spam.</small>
+        </div>
+
+        <!-- ScoreBat Live Scores -->
+        <div id="scorebatContainer" class="mini-card scorebat-card" style="display:none">
+          <span class="panel-label">⚽ Placar ao Vivo</span>
+          <div id="scorebatWidget"></div>
         </div>
 
         <!-- SEO -->

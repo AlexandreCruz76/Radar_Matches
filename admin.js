@@ -21,6 +21,7 @@ const cfgAdsense = $('#cfgAdsense');
 const cfgGaId = $('#cfgGaId');
 const cfgEmail = $('#cfgEmail');
 const cfgUsdToBrl = $('#cfgUsdToBrl');
+const cfgScoreBat = $('#cfgScoreBat');
 const cfgAdminPassword = $('#cfgAdminPassword');
 const saveConfigBtn = $('#saveConfigBtn');
 const exportConfigBtn = $('#exportConfigBtn');
@@ -110,6 +111,7 @@ function loadConfigIntoForm() {
   cfgGaId.value = cfg.gaId || DEFAULTS.gaId;
   cfgEmail.value = cfg.email || DEFAULTS.email;
   cfgUsdToBrl.value = cfg.usdToBrl || DEFAULTS.usdToBrl;
+  cfgScoreBat.value = cfg.scorebatEmbed || '';
   // Update guide email
   if (guideEmail) guideEmail.textContent = cfg.email || DEFAULTS.email;
 }
@@ -224,7 +226,8 @@ saveConfigBtn?.addEventListener('click', () => {
     adsense: cfgAdsense.value.trim(),
     gaId: cfgGaId.value.trim(),
     email: cfgEmail.value.trim(),
-    usdToBrl: parseFloat(cfgUsdToBrl.value) || DEFAULTS.usdToBrl
+    usdToBrl: parseFloat(cfgUsdToBrl.value) || DEFAULTS.usdToBrl,
+    scorebatEmbed: cfgScoreBat.value.trim()
   });
   if (guideEmail) guideEmail.textContent = cfgEmail.value.trim() || DEFAULTS.email;
   configMsg.textContent = '✅ Configuração salva! Os placeholders serão substituídos no site.';

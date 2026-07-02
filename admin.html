@@ -107,6 +107,12 @@
           <label class="admin-label">Taxa de câmbio USD → BRL (para dashboard)</label>
           <input id="cfgUsdToBrl" class="admin-input" type="number" step="0.01" placeholder="5.00" />
 
+          <label class="admin-label">ScoreBat Widget - Código Embed (opcional)</label>
+          <textarea id="cfgScoreBat" class="admin-input" style="min-height:80px;padding:10px 14px;resize:vertical;font-family:var(--font-mono);font-size:0.82rem" placeholder="Cole aqui o script do widget ScoreBat..."></textarea>
+          <p style="font-size:0.78rem;color:var(--muted);margin:-8px 0 12px">
+            Vá em <a href="https://www.scorebat.com/free-livescore-widget/" target="_blank" rel="noopener">scorebat.com/free-livescore-widget</a>, configure as cores e ligas, copie o script gerado e cole aqui.
+          </p>
+
           <div class="admin-row">
             <button id="saveConfigBtn" class="admin-btn primary">💾 Salvar configuração</button>
             <button id="exportConfigBtn" class="admin-btn gold">📦 Exportar para deploy</button>
