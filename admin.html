@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Painel Admin | OndePassa Copa 2026</title>
+  <meta name="description" content="Painel administrativo do OndePassa Copa — configure domínio, AdSense, GA4 e monitore receitas." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0f8a5f" />
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    .admin-shell { max-width: 800px; margin: 0 auto; padding: 24px 16px 64px; }
+    .admin-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 24px; margin-bottom: 16px; backdrop-filter: blur(8px); }
+    .admin-card h2 { font-size: 1.2rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .admin-card h3 { font-size: 1rem; margin-bottom: 12px; }
+    .admin-label { display: block; font-size: 0.82rem; font-weight: 700; color: var(--muted); margin-bottom: 4px; }
+    .admin-input { width: 100%; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font); font-size: 0.9rem; color: var(--ink); background: var(--surface); margin-bottom: 12px; transition: border-color var(--transition-fast); }
+    .admin-input:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(15, 138, 95, 0.12); }
+    .admin-btn { min-height: 44px; padding: 0 20px; border: 0; border-radius: var(--radius-sm); font-weight: 800; font-size: 0.9rem; cursor: pointer; transition: all var(--transition-base); }
+    .admin-btn.primary { background: var(--green); color: white; }
+    .admin-btn.primary:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .admin-btn.secondary { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+    .admin-btn.secondary:hover { border-color: var(--red); color: var(--red); }
+    .admin-btn.gold { background: var(--gold); color: #211700; }
+    .admin-btn.gold:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(240, 180, 41, 0.3); }
+    .admin-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .revenue-big { font-size: 2.4rem; font-weight: 900; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+    .revenue-big.usd { color: var(--green); }
+    .revenue-big.brl { color: var(--gold); }
+    .revenue-card { text-align: center; padding: 20px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
+    .revenue-card .label { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .guide-step { padding: 14px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); margin-bottom: 8px; }
+    .guide-step strong { display: block; margin-bottom: 4px; }
+    .guide-step code { font-family: var(--font-mono); font-size: 0.82rem; background: var(--surface-tertiary); padding: 2px 6px; border-radius: 3px; }
+    .guide-step .step-num { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--green); color: white; font-size: 0.75rem; font-weight: 900; margin-right: 8px; }
+    .tab-bar { display: flex; gap: 4px; margin-bottom: 16px; flex-wrap: wrap; }
+    .tab-btn { padding: 8px 16px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all var(--transition-fast); }
+    .tab-btn.active { background: var(--green); color: white; border-color: var(--green); }
+    .tab-btn:hover:not(.active) { border-color: var(--green); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .msg { font-size: 0.85rem; margin-top: 8px; padding: 8px 12px; border-radius: var(--radius-sm); }
+    .msg.success { background: var(--green-light); color: var(--green-dark); }
+    .msg.info { background: var(--blue-light); color: var(--blue); }
+    .domain-suggestion { display: flex; justify-content: space-between; align-items: center; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); margin-bottom: 8px; }
+    .domain-suggestion .name { font-weight: 700; }
+    .domain-suggestion .type { font-size: 0.78rem; color: var(--muted); }
+    .domain-suggestion a { color: var(--green); font-weight: 700; font-size: 0.85rem; }
+    .currency-toggle { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .currency-toggle button { padding: 4px 12px; border: 1px solid var(--line); border-radius: 99px; background: var(--surface); font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all var(--transition-fast); }
+    .currency-toggle button.active { background: var(--green); color: white; border-color: var(--green); }
+    @media (max-width: 620px) { .admin-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-shell">
+      <a class="brand" href="./index.html"><span class="brand-icon">O</span>OndePassa</a>
+      <nav class="topbar-controls">
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Alternar tema">🌙</button>
+        <a class="user-link" href="./index.html">← Site público</a>
+        <a class="user-link" href="./usuario.html">👤 Usuário</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="admin-shell">
+
+    <!-- ═══ ACCESS CONTROL ═══ -->
+    <div id="loginScreen" class="admin-card" style="text-align:center;padding:48px 24px">
+      <span style="font-size:3rem;display:block;margin-bottom:12px">🔐</span>
+      <h2 style="justify-content:center">Acesso restrito</h2>
+      <p style="margin-bottom:16px;color:var(--muted)">Este painel é apenas para administradores do OndePassa.</p>
+      <input id="adminPassword" type="password" class="admin-input" placeholder="Senha de administrador" style="max-width:320px;margin:0 auto 12px;text-align:center" />
+      <button id="loginBtn" class="admin-btn primary" style="width:100%;max-width:320px">Entrar</button>
+      <p id="loginError" style="color:var(--red);font-size:0.85rem;margin-top:8px;display:none">Senha incorreta. Tente novamente.</p>
+      <small style="display:block;margin-top:12px;color:var(--muted)">Dica: a senha padrão é <code>admin2026</code> — troque após o primeiro acesso.</small>
+    </div>
+
+    <!-- ═══ DASHBOARD (protegido) ═══ -->
+    <div id="adminDashboard" style="display:none">
+
+      <!-- Tabs -->
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="config">⚙️ Configuração</button>
+        <button class="tab-btn" data-tab="revenue">💰 Receitas</button>
+        <button class="tab-btn" data-tab="guides">📖 Guias</button>
+      </div>
+
+      <!-- ═══ TAB 1: CONFIG ═══ -->
+      <div id="tabConfig" class="tab-content active">
+        <div class="admin-card">
+          <h2>⚙️ Configuração do site</h2>
+          <p style="font-size:0.85rem;color:var(--muted);margin-bottom:16px">Os valores salvos aqui substituem os placeholders em todo o site. Ficam salvos apenas neste navegador (localStorage). Para deploy em produção, use o botão "Exportar config" e siga o guia.</p>
+          <label class="admin-label">Domínio (ex: ondepassa.com)</label>
+          <input id="cfgDomain" class="admin-input" placeholder="seudominio.com" />
+
+          <label class="admin-label">Google AdSense — Publisher ID</label>
+          <input id="cfgAdsense" class="admin-input" placeholder="ca-pub-SEU_ID_ADSENSE" />
+
+          <label class="admin-label">Google Analytics — Measurement ID (GA4)</label>
+          <input id="cfgGaId" class="admin-input" placeholder="G-MEASUREMENT_ID" />
+
+          <label class="admin-label">Email comercial (para patrocínios)</label>
+          <input id="cfgEmail" class="admin-input" placeholder="comercial@seudominio.com" />
+
+          <label class="admin-label">Taxa de câmbio USD → BRL (para dashboard)</label>
+          <input id="cfgUsdToBrl" class="admin-input" type="number" step="0.01" placeholder="5.00" />
+
+          <div class="admin-row">
+            <button id="saveConfigBtn" class="admin-btn primary">💾 Salvar configuração</button>
+            <button id="exportConfigBtn" class="admin-btn gold">📦 Exportar para deploy</button>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button id="clearConfigBtn" class="admin-btn secondary">🗑️ Limpar configuração</button>
+          </div>
+          <p id="configMsg" class="msg" style="display:none"></p>
+        </div>
+
+        <div class="admin-card">
+          <h2>🔑 Segurança</h2>
+          <label class="admin-label">Nova senha do painel admin</label>
+          <input id="cfgAdminPassword" class="admin-input" type="password" placeholder="Nova senha (mín. 6 caracteres)" style="max-width:320px" />
+          <button id="savePasswordBtn" class="admin-btn secondary">Trocar senha</button>
+          <p id="passwordMsg" class="msg" style="display:none"></p>
+        </div>
+      </div>
+
+      <!-- ═══ TAB 2: REVENUE ═══ -->
+      <div id="tabRevenue" class="tab-content">
+        <div class="admin-card">
+          <h2>💰 Painel de receitas</h2>
+          <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">Receita simulada com base nos cliques e impressões registrados no site.</p>
+          <div class="currency-toggle">
+            <span style="font-size:0.85rem;font-weight:700;color:var(--muted)">Moeda:</span>
+            <button id="currUsd" class="active">USD $</button>
+            <button id="currBrl">BRL R$</button>
+          </div>
+          <div class="admin-row">
+            <div class="revenue-card">
+              <div class="label">Receita total estimada</div>
+              <div class="revenue-big usd" id="revTotalUsd">US$ 0.00</div>
+              <div class="revenue-big brl" id="revTotalBrl" style="display:none">R$ 0.00</div>
+            </div>
+            <div class="revenue-card">
+              <div class="label">Cliques enviados</div>
+              <div class="revenue-big usd" style="font-size:1.6rem" id="revSentClicks">0</div>
+              <div style="font-size:0.85rem;color:var(--muted)" id="revSentRevenue">US$ 0.00</div>
+            </div>
+          </div>
+          <div class="admin-row" style="margin-top:12px">
+            <div class="revenue-card">
+              <div class="label">Cliques em anúncios</div>
+              <div class="revenue-big usd" style="font-size:1.6rem" id="revAdClicks">0</div>
+              <div style="font-size:0.85rem;color:var(--muted)" id="revAdRevenue">US$ 0.00</div>
+            </div>
+            <div class="revenue-card">
+              <div class="label">Impressões</div>
+              <div class="revenue-big usd" style="font-size:1.6rem" id="revImpressions">0</div>
+              <div style="font-size:0.85rem;color:var(--muted)" id="revImpRevenue">US$ 0.00</div>
+            </div>
+          </div>
+          <div class="admin-row" style="margin-top:12px">
+            <div class="revenue-card">
+              <div class="label">Leads capturados</div>
+              <div class="revenue-big usd" style="font-size:1.6rem" id="revLeads">0</div>
+              <div style="font-size:0.85rem;color:var(--muted)" id="revLeadRevenue">US$ 0.00</div>
+            </div>
+            <div class="revenue-card">
+              <div class="label">Patrocínios vendidos</div>
+              <div class="revenue-big usd" style="font-size:1.6rem" id="revSponsors">0</div>
+              <div style="font-size:0.85rem;color:var(--muted)" id="revSponsorRevenue">US$ 0.00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ TAB 3: GUIDES ═══ -->
+      <div id="tabGuides" class="tab-content">
+        <div class="admin-card">
+          <h2>📖 Guia de monetização</h2>
+          <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">Siga estes passos para conectar provedores de anúncio e começar a monetizar.</p>
+
+          <h3>📢 Google AdSense</h3>
+          <div class="guide-step"><span class="step-num">1</span><strong>Criar conta</strong>Acesse <a href="https://adsense.google.com" target="_blank">adsense.google.com</a> e cadastre-se com seu domínio. A aprovação pode levar de 1 a 7 dias.</div>
+          <div class="guide-step"><span class="step-num">2</span><strong>Obter Publisher ID</strong>No AdSense, vá em <strong>Configuração → Conta</strong> e copie seu ID (formato: <code>ca-pub-XXXXXXXXXXXXXX</code>).</div>
+          <div class="guide-step"><span class="step-num">3</span><strong>Inserir no painel</strong>Cole o Publisher ID no campo "Google AdSense" da aba Configuração e salve. O site passará a usar seu ID real.</div>
+          <div class="guide-step"><span class="step-num">4</span><strong>Criar blocos de anúncio</strong>No AdSense, crie blocos responsivos e copie os slots. Substitua nos placeholders <code>slot-horizontal</code>, <code>slot-rodape</code>, <code>slot-sidebar</code> pelos IDs dos seus blocos.</div>
+          <div class="guide-step"><span class="step-num">5</span><strong>Verificar ads.txt</strong>O arquivo <code>ads.txt</code> já está no projeto. No AdSense, vá em <strong>Configuração → Pagamentos → ads.txt</strong> e verifique se está correto.</div>
+          <div class="guide-step"><span class="step-num">6</span><strong>Ativar anúncios automáticos</strong>No AdSense, ative <strong>Anúncios automáticos</strong> para maximizar receita sem esforço manual.</div>
+
+          <h3 style="margin-top:20px">📊 Google Analytics (GA4)</h3>
+          <div class="guide-step"><span class="step-num">1</span><strong>Criar propriedade</strong>Acesse <a href="https://analytics.google.com" target="_blank">analytics.google.com</a> e crie uma propriedade <strong>Google Analytics 4 (GA4)</strong>.</div>
+          <div class="guide-step"><span class="step-num">2</span><strong>Copiar Measurement ID</strong>Vá em <strong>Admin → Fluxo de dados → Web</strong> e copie o Measurement ID (formato: <code>G-XXXXXXXXXX</code>).</div>
+          <div class="guide-step"><span class="step-num">3</span><strong>Inserir no painel</strong>Cole o ID no campo "Google Analytics" da aba Configuração e salve.</div>
+          <div class="guide-step"><span class="step-num">4</span><strong>Eventos já configurados</strong>O app.js já envia automaticamente: <code>page_view</code>, <code>outbound_click</code>, <code>ad_click</code>, <code>lead_capture</code>, <code>revenue_simulation</code>. Nada extra é necessário.</div>
+
+          <h3 style="margin-top:20px">🤝 Outros fornecedores de monetização</h3>
+          <div class="guide-step"><strong>Links de afiliado (Amazon, Lomadee)</strong>Substitua os links dos canais por links de afiliado. Ex: em vez de <code>https://globoplay.globo.com/</code>, use <code>https://www.amazon.com/...</code> com seu código de afiliado. Dê preferência a programas como <strong>Amazon Associates</strong> (US) e <strong>Lomadee</strong> (BR).</div>
+          <div class="guide-step"><strong>Patrocínio direto (tabela de preços)</strong>A seção de patrocínio já está no site com planos de US$ 50 a US$ 500/mês. Para vender: (1) identifique bares, restaurantes e operadoras de TV na sua região; (2) envie email para <code id="guideEmail">comercial@seudominio.com</code>; (3) ofereça destaque por país e partida.</div>
+          <div class="guide-step"><strong>Newsletter patrocinada</strong>Os leads capturados no formulário de alerta podem ser monetizados com patrocinadores pagando por lead qualificado. Estimativa: US$ 1-5 por lead.</div>
+          <div class="guide-step"><strong>Conteúdo patrocinado</strong>Crie posts sobre melhores bares para ver jogos, reviews de serviços de streaming ou guias de viagem para cidades-sede. Cobre por menção ou post dedicado.</div>
+        </div>
+
+        <div class="admin-card">
+          <h2>🌐 Domínios gratuitos</h2>
+          <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">Opções de domínio gratuito para colocar o site no ar sem custo:</p>
+
+          <div class="domain-suggestion">
+            <div><div class="name">seudominio.netlify.app</div><div class="type">Netlify — subdomínio gratuito, HTTPS incluso</div></div>
+            <a href="https://www.netlify.com" target="_blank">Criar conta →</a>
+          </div>
+          <div class="domain-suggestion">
+            <div><div class="name">seudominio.pages.dev</div><div class="type">Cloudflare Pages — subdomínio gratuito, HTTPS, ótimo para este projeto</div></div>
+            <a href="https://pages.cloudflare.com" target="_blank">Criar conta →</a>
+          </div>
+          <div class="domain-suggestion">
+            <div><div class="name">seudominio.vercel.app</div><div class="type">Vercel — subdomínio gratuito, HTTPS, deploy automático</div></div>
+            <a href="https://vercel.com" target="_blank">Criar conta →</a>
+          </div>
+          <div class="domain-suggestion">
+            <div><div class="name">seudominio.github.io</div><div class="type">GitHub Pages — gratuito, precisa de repositório público</div></div>
+            <a href="https://pages.github.com" target="_blank">Criar conta →</a>
+          </div>
+          <div class="domain-suggestion">
+            <div><div class="name">tk / .ml / .ga / .cf</div><div class="type">Domínios gratuitos via Freenom — ideal como alternativa temporária</div></div>
+            <a href="https://www.freenom.com" target="_blank">Resgatar →</a>
+          </div>
+          <div class="guide-step" style="margin-top:12px">
+            <strong>💡 Recomendação para este projeto:</strong> Use <strong>Cloudflare Pages</strong> (domínio <code>.pages.dev</code>) — é gratuito, tem HTTPS automático, performance excelente e é onde o projeto foi projetado para rodar (vide <code>_headers</code> e <code>_redirects</code> já configurados).
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <h2>🚀 Passo a passo para deploy</h2>
+          <div class="guide-step"><span class="step-num">1</span><strong>Criar conta no Cloudflare</strong>Acesse <a href="https://dash.cloudflare.com/sign-up" target="_blank">dash.cloudflare.com/sign-up</a> (não precisa de cartão de crédito).</div>
+          <div class="guide-step"><span class="step-num">2</span><strong>Fazer deploy</strong>Vá em <strong>Workers & Pages → Pages → Connect to Git</strong>. Conecte seu repositório GitHub/GitLab com os arquivos do OndePassa.</div>
+          <div class="guide-step"><span class="step-num">3</span><strong>Configurar build</strong>Framework: <strong>None</strong> | Build command: <strong>deixe vazio</strong> | Build output: <strong>/</strong></div>
+          <div class="guide-step"><span class="step-num">4</span><strong>Configurar env vars</strong>No Cloudflare Pages, vá em <strong>Configurações → Variáveis de ambiente</strong> e adicione: <code>DOMAIN</code>, <code>ADSENSE_ID</code>, <code>GA_MEASUREMENT_ID</code>. Use o JSON exportado como referência.</div>
+          <div class="guide-step"><span class="step-num">5</span><strong>Configurar domínio personalizado</strong>Vá em <strong>Pages → seu projeto → Custom domains</strong> e adicione seu domínio (ex: ondepassa.com, ou use o subdomínio <code>.pages.dev</code> gratuito).</div>
+          <div class="guide-step"><span class="step-num">6</span><strong>Configurar DNS + Search Console</strong>Aponte o DNS para o Cloudflare, envie o sitemap.xml no Google Search Console e verifique o ads.txt.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+  <script src="./admin.js" defer></script>
+</body>
+</html>

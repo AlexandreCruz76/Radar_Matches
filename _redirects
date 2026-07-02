@@ -1,0 +1,14 @@
+# Cloudflare Pages Redirects
+# https://developers.cloudflare.com/pages/platform/redirects/
+
+# Match pages as clean URLs
+/pages/* /pages/:splat 200
+
+# Redirect old paths (if any)
+/jogos/* /pages/:splat 301
+
+# SEO: redirect root search params
+/index.html / 301
+
+# Always serve index.html for PWA SPA fallback
+/* /index.html 404

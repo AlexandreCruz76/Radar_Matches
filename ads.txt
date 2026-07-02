@@ -1,0 +1,6 @@
+# OndePassa Copa 2026 — Google AdSense
+# Substitua SEU_ID_ADSENSE pelo seu publisher ID real
+google.com, pub-SEU_ID_ADSENSE, DIRECT, f08c47fec0942fa0
+
+# Reservado para futuros parceiros de anúncio
+# exoclick.com, PUBLISHER_ID, DIRECT, HASH

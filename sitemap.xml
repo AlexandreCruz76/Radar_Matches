@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://seudominio.com/</loc>
+    <priority>1.0</priority>
+    <changefreq>daily</changefreq>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://seudominio.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://seudominio.com/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://seudominio.com/?lang=es" />
+  </url>
+
+  <!-- Match Detail Pages -->
+  <url>
+    <loc>https://seudominio.com/pages/usa-vs-bosnia-2026.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://seudominio.com/pages/mexico-vs-ecuador-2026.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://seudominio.com/pages/england-vs-dr-congo-2026.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://seudominio.com/pages/belgium-vs-senegal-2026.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://seudominio.com/pages/brazil-vs-croatia-2026.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://seudominio.com/pages/argentina-vs-uruguay-2026.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Quarter-finals -->
+  <url>
+    <loc>https://seudominio.com/pages/brazil-vs-england-2026.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://seudominio.com/pages/argentina-vs-belgium-2026.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://seudominio.com/pages/usa-vs-germany-2026.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://seudominio.com/pages/mexico-vs-spain-2026.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Semi-finals -->
+  <url>
+    <loc>https://seudominio.com/pages/brazil-vs-argentina-2026.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://seudominio.com/pages/usa-vs-mexico-2026.html</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Grand Final -->
+  <url>
+    <loc>https://seudominio.com/pages/final-2026.html</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Sections -->
+  <url>
+    <loc>https://seudominio.com/#matches</loc>
+    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://seudominio.com/#officials</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://seudominio.com/#sponsors</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+</urlset>

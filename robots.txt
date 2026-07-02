@@ -1,0 +1,10 @@
+# OndePassa Copa 2026 - robots.txt
+User-agent: *
+Allow: /
+Disallow: /usuario.html
+
+# Sitemaps
+Sitemap: https://seudominio.com/sitemap.xml
+
+# Crawl delay for gentle crawling
+Crawl-delay: 1

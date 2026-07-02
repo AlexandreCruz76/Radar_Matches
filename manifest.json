@@ -1,0 +1,50 @@
+{
+  "name": "OndePassa Copa 2026",
+  "short_name": "OndePassa",
+  "description": "Guia oficial de transmissão dos jogos da Copa do Mundo 2026. Encontre canais oficiais e streamings autorizados.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f1514",
+  "theme_color": "#0f8a5f",
+  "categories": ["sports", "entertainment", "news"],
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect rx='24' width='192' height='192' fill='%230f8a5f'/%3E%3Ctext x='96' y='130' text-anchor='middle' font-size='100' font-weight='900' fill='white'%3EO%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect rx='48' width='512' height='512' fill='%230f8a5f'/%3E%3Ctext x='256' y='340' text-anchor='middle' font-size='240' font-weight='900' fill='white'%3EO%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ver jogos de hoje",
+      "short_name": "Jogos hoje",
+      "description": "Jogos da Copa acontecendo hoje",
+      "url": "/index.html?status=today"
+    },
+    {
+      "name": "Canais oficiais",
+      "short_name": "Canais",
+      "description": "Diretório de canais por país",
+      "url": "/index.html#officials"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1920&h=1080&q=80",
+      "sizes": "1920x1080",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "OndePassa Copa 2026"
+    }
+  ]
+}
